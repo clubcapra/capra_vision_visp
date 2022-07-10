@@ -152,6 +152,8 @@ namespace visp_tracker
     /// \brief ViSP image.
     image_t image_;
 
+    sensor_msgs::Image ui_image_;
+
     /// \brief Shared pointer to latest received camera information.
     sensor_msgs::CameraInfoConstPtr info_;
     /// \brief Last tracked object position, set to none if tracking failed.

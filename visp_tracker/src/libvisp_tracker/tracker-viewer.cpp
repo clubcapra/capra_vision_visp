@@ -261,6 +261,10 @@ namespace visp_tracker
 
     boost::format fmtCameraTopic("camera topic = %s");
     fmtCameraTopic % rectifiedImageTopic_;
+
+    ros::NodeHandle n_;
+    ros::Publisher ui_image_publisher = n_.advertise<sensor_msgs::Image>("image_raw", 100);
+
     while (!exiting())
     {
       vpDisplay::display(image_);
@@ -297,6 +301,7 @@ namespace visp_tracker
       }
 
       vpDisplay::flush(image_);
+      ui_image_publisher.publish(ui_image_);
       ros::spinOnce();
       loop_rate.sleep();
     }
@@ -410,6 +415,7 @@ namespace visp_tracker
     try
     {
       rosImageToVisp(image_, image);
+      vispImageToRos(ui_image_, image_);
     }
     catch(std::exception& e)
     {

@@ -1,0 +1,11 @@
+<launch>
+    <arg name="capra_namespace" default="/capra"/>
+    <node pkg="visp_tracker" type="visp_tracker_viewer" name="tracker_mbt_viewer" ns="$(arg capra_namespace)" output="screen">
+        <param name="frame_size" value="0.1" />
+        <remap from="/image_rect" to="/usb_cam/image_raw"/>
+        <remap from="/camera_info" to="/usb_cam/camera_info"/>
+        <remap from="/object_position_covariance" to="/visp_auto_tracker/object_position_covariance"/>
+        <remap from="/object_position" to="/visp_auto_tracker/object_position"/>
+        <param name="tracker_prefix" value="$(arg capra_namespace)" />
+    </node>
+</launch>
