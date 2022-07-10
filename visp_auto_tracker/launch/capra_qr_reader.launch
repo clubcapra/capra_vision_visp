@@ -12,7 +12,4 @@
     <remap from="$(arg capra_namespace)/visp_auto_tracker/image_raw" to="$(arg capra_namespace)/usb_cam/image_raw"/>
   </node>
 
-    <!-- Launch the viewer -->
-
-
 </launch>

@@ -94,7 +94,7 @@ namespace visp_auto_tracker{
 
     ROS_INFO("Model content=%s",model_description_.c_str());
 
-    n_.setParam ("/capra/visp_auto_tracker/model_description", model_description_);
+    n_.setParam ("/model_description", model_description_);
   }
 
   void Node::waitForImage(){
